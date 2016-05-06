@@ -100,6 +100,7 @@
 					<distortionK3>0.0</distortionK3>
 					<distortionT1>0.0</distortionT1>
 					<distortionT2>0.0</distortionT2>
+					<robotNamespace>${name}</robotNamespace> 
 				</plugin>
 			</sensor>
 		</gazebo>
@@ -147,6 +148,7 @@
 					<distortionK3>0.0</distortionK3>
 					<distortionT1>0.0</distortionT1>
 					<distortionT2>0.0</distortionT2>
+					<robotNamespace>${name}</robotNamespace> 
 				</plugin>
 			</sensor>
 		</gazebo>
@@ -161,6 +163,7 @@
 
 			<sensor type="depth" name="${name}_xtion">
 				<update_rate>10</update_rate>
+<!-- 				<robotNamespace>${name}</robotNamespace>  -->
 				<camera>
 					<horizontal_fov>1.09606677025</horizontal_fov>
 					<image>
@@ -174,6 +177,7 @@
 					</clip>
 				</camera>
 				<plugin filename="libgazebo_ros_openni_kinect.so" name="xtion_camera_controller">
+				  <!--libgazebo_ros_openni_kinect.so-->
 					<alwaysOn>true</alwaysOn>
 					<updateRate>10</updateRate>
 					<cameraName>${name}_asus</cameraName>
@@ -184,11 +188,17 @@
 					<pointCloudTopicName>${name}_asus/depth_registered/points</pointCloudTopicName>
 					<frameName>${name}_asus/camera_rgb_optical_frame</frameName>
 					<pointCloudCutoff>0.5</pointCloudCutoff>
+					<pointCloudCutoffMax>3.0</pointCloudCutoffMax>
 					<distortion_k1>0.0</distortion_k1>
 					<distortion_k2>0.0</distortion_k2>
 					<distortion_k3>0.0</distortion_k3>
 					<distortion_t1>0.0</distortion_t1>
 					<distortion_t2>0.0</distortion_t2>
+					<CxPrime>0</CxPrime>
+			                <Cx>0</Cx>
+		 	                <Cy>0</Cy>
+					<focalLength>0.0</focalLength>
+<!-- 					<robotNamespace>${name}</robotNamespace>  -->
 				</plugin>
 			</sensor>
 		</gazebo>
